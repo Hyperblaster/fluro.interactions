@@ -24,7 +24,7 @@ module.exports = function(grunt) {
             'fluro.interactions': {
                 cwd: './lib/html',
                 src: 'fluro/**/*.html',
-                dest: 'dist/fluro-form-templates.js',
+                dest: 'dist/fluro.interactions-templates.js',
                 options: {
                     htmlmin: {
                         collapseBooleanAttributes: true,
@@ -44,7 +44,7 @@ module.exports = function(grunt) {
         concat: {
             js: {
                 src: ['lib/js/**/*.js'],
-                dest: 'dist/fluro-form.js',
+                dest: 'dist/fluro.interactions.js',
             }
         },
         uglify: {
@@ -53,8 +53,8 @@ module.exports = function(grunt) {
             },
             build: {
                 src: [
-                    'dist/fluro-form.js',
-                    'dist/fluro-form-templates.js'
+                    'dist/fluro.interactions.js',
+                    'dist/fluro.interactions-templates.js'
                 ],
                 dest: 'dist/fluro.interactions.min.js'
             }
