@@ -64,7 +64,7 @@ angular.module('fluro.interactions')
 
         //Phone Number
         if(interactionData._phoneNumber) {
-            submission.contact.phoneNumbers = [interactionData._phoneNumbers];
+            submission.contact.phoneNumbers = [interactionData._phoneNumber];
         }
 
         //Date of birth
