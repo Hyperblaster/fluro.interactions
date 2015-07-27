@@ -143,7 +143,7 @@ angular.module('fluro.interactions')
 
 */
 angular.module('fluro.interactions')
-.service('FluroInteractionValidator', function() {
+.service('FluroValidate', function() {
 
     var controller = {};
 
