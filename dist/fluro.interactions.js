@@ -13,7 +13,7 @@ angular.module('fluro.interactions')
     
     //////////////////////////////////////////////////
 
-    controller.interact = function(title, definitionKey, interactionData) {
+    controller.interact = function(title, key, interactionData) {
 
         /////////////////////////////////////////////
 
@@ -23,23 +23,65 @@ angular.module('fluro.interactions')
         /////////////////////////////////////////////
 
         //ID the definition used to translate this interaction
-        submission.key = definitionKey;
+        submission.key = key;
 
         /////////////////////////////////////////////
 
-        //Create the contact information
-        submission.contact = {
-
+        /**
+         * _contact
+         * _contact can be provided as a full object or an id of an existing contact
+         */
+        if(interactionData._contact) {
+            submission.contact = interactionData._contact;
+        } else {
+            submission.contact = {};
         }
 
+        /////////////////////////////////////////////
+        /////////////////////////////////////////////
+        /////////////////////////////////////////////
+        
+        //First Name
+        if(interactionData._firstName) {
+            submission.contact.firstName = interactionData._firstName;
+        }
+
+        //Last Name
+        if(interactionData._lastName) {
+            submission.contact.lastName = interactionData._lastName;
+        }
+
+        //Email Address
+        if(interactionData._email) {
+            submission.contact.emails = [interactionData._email];
+        }
+
+        //Phone Number
+        if(interactionData._phoneNumber) {
+            submission.contact.phoneNumbers = [interactionData._phoneNumbers];
+        }
+
+        //Date of birth
+        if(interactionData._dob) {
+            submission.contact.dob = interactionData._dob;
+        }
+
+        //Gender
+        if(interactionData._gender) {
+            submission.contact.gender = interactionData._gender;
+        }
+
+        /////////////////////////////////////////////
         /////////////////////////////////////////////
 
         //And include the interaction data
         submission.interaction = interactionData;
 
+        /////////////////////////////////////////////
+        /////////////////////////////////////////////
 
         //Return the promise
-        return FluroContent.endpoint('interact').save(submission).$promise;
+        return FluroContent.endpoint('interact/' + key).save(submission).$promise;
     }
 
     //////////////////////////////////////////////////
