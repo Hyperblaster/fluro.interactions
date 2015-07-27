@@ -5,6 +5,48 @@ angular.module('fluro.interactions', [
 	'fluro.content',
 ]);
 angular.module('fluro.interactions')
+
+
+.service('FluroInteraction', function(Fluro, FluroContent) {
+
+    var controller = {};
+    
+    //////////////////////////////////////////////////
+
+    controller.interact = function(title, definitionKey, interactionData) {
+
+        /////////////////////////////////////////////
+
+        //Create a submission to send to our interaction endpoint
+        var submission = {};
+
+        /////////////////////////////////////////////
+
+        //ID the definition used to translate this interaction
+        submission.key = definitionKey;
+
+        /////////////////////////////////////////////
+
+        //Create the contact information
+        submission.contact = {
+
+        }
+
+        /////////////////////////////////////////////
+
+        //And include the interaction data
+        submission.interaction = interactionData;
+
+
+        //Return the promise
+        return FluroContent.endpoint('interact').save(interaction).$promise;
+    }
+
+    //////////////////////////////////////////////////
+
+    return controller;
+});
+/*
 .service('FluroInteractionService', function(Fluro, FluroContent) {
 
     //////////////////////////////////////////////////
@@ -37,6 +79,8 @@ angular.module('fluro.interactions')
 
 
 });
+
+*/
 angular.module('fluro.interactions')
 .service('FluroInteractionValidator', function() {
 
