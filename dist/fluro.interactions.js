@@ -39,7 +39,7 @@ angular.module('fluro.interactions')
 
 
         //Return the promise
-        return FluroContent.endpoint('interact').save(interaction).$promise;
+        return FluroContent.endpoint('interact').save(submission).$promise;
     }
 
     //////////////////////////////////////////////////
