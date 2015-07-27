@@ -62,9 +62,19 @@ angular.module('fluro.interactions')
             submission.contact.emails = [interactionData._email];
         }
 
+        //Email Address (Multiple)
+        if(interactionData._emails) {
+            submission.contact.emails = interactionData._emails;
+        }
+
         //Phone Number
         if(interactionData._phoneNumber) {
             submission.contact.phoneNumbers = [interactionData._phoneNumber];
+        }
+
+        //Phone Number (Multiple)
+        if(interactionData._phoneNumbers) {
+            submission.contact.phoneNumbers = interactionData._phoneNumbers;
         }
 
         //Date of birth
