@@ -164,7 +164,8 @@ angular.module('fluro.interactions')
     
     //////////////////////////////////////////////////
 
-    controller.interact = function(title, key, interactionData) {
+    controller.interact = function(title, key, interactionData, payment) {
+
 
 
         /////////////////////////////////////////////
@@ -181,6 +182,12 @@ angular.module('fluro.interactions')
 
         //ID the definition used to translate this interaction
         submission.key = key;
+
+        /////////////////////////////////////////////
+
+        if(payment) {
+            submission.payment = payment;
+        }
 
         /////////////////////////////////////////////
 
