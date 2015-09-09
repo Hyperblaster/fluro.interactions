@@ -22,6 +22,6 @@
     "angular": "~1.3.14",
     "fluro.config": "*",
     "fluro.util": "*",
-    "validator-js": "~3.39.0"
+    "fluro.validate": "*"
   }
 }

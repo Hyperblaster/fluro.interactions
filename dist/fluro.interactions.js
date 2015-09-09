@@ -3,8 +3,9 @@
 angular.module('fluro.interactions', [
 	'fluro.util',
 	'fluro.content',
+	'fluro.validate',
 ]);
-angular.module('fluro.interactions')
+/*angular.module('fluro.interactions')
 .service('FluroValidate', function() {
 
     var controller = {};
@@ -147,6 +148,10 @@ angular.module('fluro.interactions')
             case 'boolean':
                 return _.isBoolean(field);
                 break;
+            case 'void':
+                //Always return true for void
+                return true;
+                break;
         }
     }
 
@@ -155,6 +160,7 @@ angular.module('fluro.interactions')
 
 
 });
+*/
 angular.module('fluro.interactions')
 
 
