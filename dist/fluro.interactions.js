@@ -164,7 +164,7 @@ angular.module('fluro.interactions', [
 angular.module('fluro.interactions')
 
 
-.service('FluroInteraction', function(Fluro, FluroContent) {
+.service('FluroInteraction', ['Fluro', 'FluroContent', function(Fluro, FluroContent) {
 
     var controller = {};
     
@@ -279,7 +279,7 @@ angular.module('fluro.interactions')
     //////////////////////////////////////////////////
 
     return controller;
-});
+}]);
 /*
 .service('FluroInteractionService', function(Fluro, FluroContent) {
 
