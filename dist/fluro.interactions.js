@@ -190,7 +190,9 @@ angular.module('fluro.interactions')
         submission.key = key;
 
         //Link to a specified event
-        submission.event = event;
+        if(event && event.length) {
+           submission.event = event;
+        }
 
         /////////////////////////////////////////////
 
