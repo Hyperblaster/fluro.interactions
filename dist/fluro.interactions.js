@@ -170,7 +170,7 @@ angular.module('fluro.interactions')
     
     //////////////////////////////////////////////////
 
-    controller.interact = function(title, key, interactionData, payment, event) {
+    controller.interact = function(title, key, interactionData, payment, event, params) {
 
 
 
@@ -273,9 +273,33 @@ angular.module('fluro.interactions')
         submission.interaction = interactionData;
         
         /////////////////////////////////////////////
+        /////////////////////////////////////////////
+        /////////////////////////////////////////////
+        /////////////////////////////////////////////
+
+        if (!params) {
+            params = {};
+        }
+
+        var url = 'interact/' + key;
+
+        //Map params as query string parameters
+        var queryParams = _.map(params, function(v, k) {
+            return encodeURIComponent(k) + '=' + encodeURIComponent(v);
+        }).join('&');
+
+        //If there are query string parameters append them to the url
+        if (queryParams.length) {
+            url += '?' + queryParams;
+        }
+
+        /////////////////////////////////////////////
+        /////////////////////////////////////////////
+        /////////////////////////////////////////////
+        /////////////////////////////////////////////
 
         //Return the promise
-        return FluroContent.endpoint('interact/' + key).save(submission).$promise;
+        return FluroContent.endpoint(url).save(submission).$promise;
     }
 
     //////////////////////////////////////////////////
